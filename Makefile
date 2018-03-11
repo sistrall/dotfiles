@@ -36,10 +36,10 @@ common_softlinking :
 
 	@###
 	@# Backup copies
-	cp ~/.gitconfig $(DOTFILES_DIRECTORY)/backup/$(BACKUP_TIMESTAMP)
-	cp ~/.gitignore $(DOTFILES_DIRECTORY)/backup/$(BACKUP_TIMESTAMP)
-	cp ~/.zshrc $(DOTFILES_DIRECTORY)/backup/$(BACKUP_TIMESTAMP)
-	
+	[ -f ~/.gitconfig ] && cp ~/.gitconfig $(DOTFILES_DIRECTORY)/backup/$(BACKUP_TIMESTAMP)
+	[ -f ~/.gitignore ] && cp ~/.gitignore $(DOTFILES_DIRECTORY)/backup/$(BACKUP_TIMESTAMP)
+	[ -f ~/.zshrc ] && cp ~/.zshrc $(DOTFILES_DIRECTORY)/backup/$(BACKUP_TIMESTAMP)
+
 	@###
 	@# Softlinking, tool by tool	
 	ln -sf $(DOTFILES_DIRECTORY)/git/.gitconfig ~/.gitconfig
