@@ -6,8 +6,6 @@ DETECTED_OS ?= $(shell uname -s | tr A-Z a-z)
 
 BACKUP_TIMESTAMP ?= $(shell date +'%Y%m%d-%H%M%S')
 
-mkdir -p ~/.dotfiles/archive
-
 setup : check_dependencies softlinking
 
 check_dependencies : check_common_dependencies check_$(DETECTED_OS)_dependencies
