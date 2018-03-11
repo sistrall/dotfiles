@@ -20,6 +20,7 @@ check_common_dependencies :
 	@# 
 	@# Inspired by http://bit.ly/2nzmHwK
 	command -v zsh >/dev/null 2>&1 || { echo "zsh is required but it's not installed."; exit 1; }
+	[ -d ~/.zprezto ] || { echo "Missing Prezto! Here it is: https://github.com/sorin-ionescu/prezto"; exit 1; }
 
 check_darwin_dependencies :
 	# No OS dependecies on macOS, at the moment
@@ -39,12 +40,14 @@ common_softlinking :
 	[ -f ~/.gitconfig ] && cp ~/.gitconfig $(DOTFILES_DIRECTORY)/backup/$(BACKUP_TIMESTAMP)
 	[ -f ~/.gitignore ] && cp ~/.gitignore $(DOTFILES_DIRECTORY)/backup/$(BACKUP_TIMESTAMP)
 	[ -f ~/.zshrc ] && cp ~/.zshrc $(DOTFILES_DIRECTORY)/backup/$(BACKUP_TIMESTAMP)
+	[ -f ~/.zpreztorc ] && cp ~/.zpreztorc $(DOTFILES_DIRECTORY)/backup/$(BACKUP_TIMESTAMP)
 
 	@###
 	@# Softlinking, tool by tool	
 	ln -sf $(DOTFILES_DIRECTORY)/git/.gitconfig ~/.gitconfig
 	ln -sf $(DOTFILES_DIRECTORY)/git/.gitignore ~/.gitignore
 	ln -sf $(DOTFILES_DIRECTORY)/zsh/.zshrc ~/.zshrc
+	ln -sf $(DOTFILES_DIRECTORY)/prezto/.zpreztorc ~/.zpreztorc
 
 darwin_softlinking :
 
