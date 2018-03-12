@@ -3,7 +3,7 @@ source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
 autoload -Uz promptinit
 promptinit
-prompt pure
+prompt walters
 
 # Vagrant aliases
 # alias vu='vagrant up'
